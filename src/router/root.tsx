@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router";
+import BasicLayout from "../layouts/basicLayout";
 
 const Loading = () => <div>Loading...</div>;
 
@@ -10,12 +11,18 @@ const About = lazy(() => import("../pages/aboutPage"));
 const router = createBrowserRouter([
   {
     path: "",
-    element: <Suspense fallback={<Loading />}><Main /></Suspense>,
-  },
-  {
-    path: "about",
-    element: <Suspense fallback={<Loading />}><About /></Suspense>,
-  },  
+    Component: BasicLayout,
+    children: [
+      {
+        index: true,
+        element: <Suspense fallback={<Loading />}><Main /></Suspense>,
+      },
+      {
+        path: 'about',
+        element: <Suspense fallback={<Loading />}><About /></Suspense>,
+      }
+    ],
+  } 
 ]);
 
 export default router;
