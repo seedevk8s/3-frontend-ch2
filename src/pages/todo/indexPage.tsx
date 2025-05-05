@@ -1,11 +1,17 @@
-import { Outlet } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 
 
 function IndexPage() {
+  const navigate = useNavigate();
+
+  const handleClickList = () => { navigate({ pathname: 'list'})}
+  
+
   return ( 
     <div>
       <div className="w-full flex m-2 p-2">
-        <div className="text-xl m-1 p-2 w-20 font-extrabold text-center underline">
+        <div className="text-xl m-1 p-2 w-20 font-extrabold text-center underline"
+             onClick={handleClickList}>
           LIST
         </div>
         <div className="text-xl m-1 p-2 w-20 font-extrabold text-center underline">
