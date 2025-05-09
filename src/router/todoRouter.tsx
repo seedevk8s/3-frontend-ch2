@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { Navigate } from "react-router";
 
 const Loading = () => <div>Loading...</div>;
 const TodoIndex = lazy(() => import("../pages/todo/indexPage"));
@@ -19,6 +20,10 @@ const todoRouter = () => {
         {
           path: "read/:tno",
           element: <Suspense fallback={<Loading/>}><TodoRead /></Suspense>,
+        },
+        {
+          path: "",
+          element: <Navigate to={"/todo/list"} />,
         }        
       ],
 
