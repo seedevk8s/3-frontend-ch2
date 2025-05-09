@@ -5,6 +5,7 @@ function IndexPage() {
   const navigate = useNavigate();
 
   const handleClickList = () => { navigate({ pathname: 'list'})}
+  const handleClickAdd = () => { navigate({ pathname: 'add'})}
   
 
   return ( 
@@ -14,7 +15,8 @@ function IndexPage() {
              onClick={handleClickList}>
           LIST
         </div>
-        <div className="text-xl m-1 p-2 w-20 font-extrabold text-center underline">
+        <div className="text-xl m-1 p-2 w-20 font-extrabold text-center underline"
+             onClick={handleClickAdd}>
           ADD
         </div>        
       </div>
